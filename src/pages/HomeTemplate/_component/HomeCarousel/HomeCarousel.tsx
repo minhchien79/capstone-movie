@@ -4,40 +4,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { actFetchHomeCarousel } from "./duck/actions";
 
-const contentStyle: React.CSSProperties = {
-  height: "500px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-};
-
 export default function HomeCarousel() {
   const dispatch: any = useDispatch();
 
-  const { loading, data } = useSelector(
-    (state: RootState) => state.homeCarouselReducer
-  );
+  const { data } = useSelector((state: RootState) => state.homeCarouselReducer);
 
   useEffect(() => {
     dispatch(actFetchHomeCarousel());
-  }, []);
+  }, [dispatch]);
 
   const renderHomeCarousel = () => {
-    if (loading) return <div>Loading...</div>;
     if (data && data.length > 0) {
       return data.map((movie) => {
         return (
           <div key={movie.maPhim}>
-            <div
-              style={{
-                ...contentStyle,
-                backgroundImage: `url(${movie.hinhAnh})`,
-              }}
-            >
-              {/* <img src={movie.hinhAnh} alt={movie.hinhAnh} className="w-full opacity-0" /> */}
+            <div>
+              <img
+                src={movie.hinhAnh}
+                alt={movie.hinhAnh}
+                style={{ width: "100%", height: "100%" }}
+              />
             </div>
           </div>
         );
@@ -46,7 +32,7 @@ export default function HomeCarousel() {
   };
 
   return (
-    <Carousel effect="fade" autoplay={true} autoplaySpeed={3000}>
+    <Carousel effect="fade" autoplay={true} autoplaySpeed={3000} arrows={true}>
       {renderHomeCarousel()}
     </Carousel>
   );

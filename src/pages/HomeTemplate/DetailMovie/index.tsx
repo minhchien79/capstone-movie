@@ -5,11 +5,13 @@ import { actFetchMovieDetails } from "./duck/actions";
 import { RootState } from "../../../store";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
+import "./style.css";
 
 const { TabPane } = Tabs;
 
-export default function DetailMovie(props: any) {
+export default function DetailMovie() {
   type TabPosition = "left" | "right" | "top" | "bottom";
+  const [showTrailer, setShowTrailer] = useState(false);
 
   const App: React.FC = () => {
     const [tabPosition] = useState<TabPosition>("left");
@@ -26,30 +28,67 @@ export default function DetailMovie(props: any) {
       }
     }, [id]);
 
+    const handleToggleTrailer = () => {
+      setShowTrailer(!showTrailer);
+    };
+
     return (
-      <div style={{ paddingTop: 150, minHeight: "100vh" }}>
-        <div className="grid grid-cols-12">
-          <div className="col-span-5 col-start-3">
-            <div className="grid grid-cols-3">
+      <div
+        style={{
+          paddingTop: 150,
+          minHeight: "100vh",
+        }}
+        className="container mx-auto bg-slate-500"
+      >
+        <div className="grid md:grid-cols-3 ">
+          <div className="">
+            <div style={{ marginRight: 50, marginLeft: 50 }}>
               <img
                 src={data?.hinhAnh}
-                className="col-span-1"
+                className="col-span-1 rounded-lg"
                 style={{ width: "100%", height: 300 }}
                 alt={data?.tenPhim}
               />
-              <div className="col-span-2 ml-5 mt-12">
-                <p className="text-sm mb-5">
-                  Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD.MM.YYYY")}
-                </p>
-                <p className="text-4xl ">{data?.tenPhim}</p>
-                <p className="mt-5 ">{data?.moTa}</p>
-              </div>
             </div>
           </div>
-          <div className="col-span-4 ">
+          <div
+            style={{
+              marginRight: 50,
+              marginLeft: 50,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <p className="text-sm mb-5">
+              Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD.MM.YYYY")}
+            </p>
+            <p className="text-4xl ">{data?.tenPhim}</p>
+            <div className="mt-5 ">
+              <button
+                className="trailer-button bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={handleToggleTrailer}
+              >
+                Trailer
+              </button>
+              {showTrailer && (
+                <iframe
+                  className="trailer-iframe"
+                  width="560"
+                  height="315"
+                  src={data?.trailer}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              )}
+            </div>
+          </div>
+          <div>
             <h1
               style={{
-                marginLeft: "15%",
+                marginLeft: "20%",
                 color: "yellow",
                 fontWeight: "bold",
                 fontSize: 15,
@@ -62,11 +101,15 @@ export default function DetailMovie(props: any) {
                 marginLeft: "5%",
               }}
               className="text-green-400 text-2xl"
-            ><Rate allowHalf value={data?.danhGia ? data.danhGia / 2 : 0} style={{color:"#78ed78",fontSize:30}} />
-             
+            >
+              <Rate
+                allowHalf
+                value={data?.danhGia ? data.danhGia / 2 : 0}
+                style={{ color: "#78ed78", fontSize: 30 }}
+              />
             </h1>
-            <div className={`c100 p${data?.danhGia ? data.danhGia * 10 : 0}}big`}>
-              <span className="text-white"> {data?.danhGia ? data.danhGia * 10 : 0}%</span>
+            <div className="c100 big">
+              <span className="text-white"> {data?.danhGia}</span>
               <div className="slice">
                 <div className="bar" />
                 <div className="fill" />
@@ -88,6 +131,7 @@ export default function DetailMovie(props: any) {
                             src={item.logo}
                             width={50}
                             alt={item.logo}
+
                           />
                           <div className="text-center ml-2">
                             {item.tenHeThongRap}
@@ -100,7 +144,10 @@ export default function DetailMovie(props: any) {
                         return (
                           <div className="mt-5" key={index}>
                             <div className="flex flex-row">
-                              <img style={{ width: 60, height: 60 }} src="" />
+                              <img
+                                style={{ width: 60, height: 60 }}
+                                src={cumRap.hinhAnh}
+                              />
                               <div className="ml-2">
                                 <p
                                   style={{
@@ -125,7 +172,7 @@ export default function DetailMovie(props: any) {
                                 .map((lichChieu, index) => {
                                   return (
                                     <Link
-                                      to="/"
+                                      to={`/checkout/${lichChieu.maLichChieu}`}
                                       key={index}
                                       className="col-span-1 text-green-800 font-bold"
                                     >
@@ -145,10 +192,7 @@ export default function DetailMovie(props: any) {
               </Tabs>
             </TabPane>
             <TabPane tab="Thông tin" key="2">
-              Thông tin
-            </TabPane>
-            <TabPane tab="Đánh giá" key="3">
-              Đánh giá
+              <h1>Mô tả phim: {data?.moTa}</h1>
             </TabPane>
           </Tabs>
         </div>
