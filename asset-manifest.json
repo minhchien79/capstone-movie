@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.117a8dcb.css",
-    "main.js": "/static/js/main.3e24facb.js",
-    "static/js/453.49636eb2.chunk.js": "/static/js/453.49636eb2.chunk.js",
-    "index.html": "/index.html",
-    "main.117a8dcb.css.map": "/static/css/main.117a8dcb.css.map",
-    "main.3e24facb.js.map": "/static/js/main.3e24facb.js.map",
-    "453.49636eb2.chunk.js.map": "/static/js/453.49636eb2.chunk.js.map"
+    "main.css": "/capstone-movie/static/css/main.117a8dcb.css",
+    "main.js": "/capstone-movie/static/js/main.6c129653.js",
+    "static/js/453.49636eb2.chunk.js": "/capstone-movie/static/js/453.49636eb2.chunk.js",
+    "index.html": "/capstone-movie/index.html",
+    "main.117a8dcb.css.map": "/capstone-movie/static/css/main.117a8dcb.css.map",
+    "main.6c129653.js.map": "/capstone-movie/static/js/main.6c129653.js.map",
+    "453.49636eb2.chunk.js.map": "/capstone-movie/static/js/453.49636eb2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.117a8dcb.css",
-    "static/js/main.3e24facb.js"
+    "static/js/main.6c129653.js"
   ]
 }
