@@ -6,6 +6,7 @@ import CheckOutTemplate from "../pages/CheckOutTemplate";
 import CheckOut from "../pages/CheckOutTemplate/CheckOut";
 import AuthenPage from "../pages/AuthenPage/LoginPage";
 import Register from "../pages/AuthenPage/RegisterPage";
+import React from "react";
 
 type TRoute = {
   path: string;

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import style from "./checkout..module.css";
+import "./style.css";
 import "../checkout.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
@@ -90,7 +90,7 @@ const CheckOut = () => {
                   className="bg-black"
                   style={{ width: "80%", height: 15 }}
                 ></div>
-                <div className={`${style["trapezoid"]} text-center`}>
+                <div className={"trapezoid text-center"}>
                   <h3 className="mt-3 text-white">Màn hình</h3>
                 </div>
                 <div>{renderSeats()}</div>

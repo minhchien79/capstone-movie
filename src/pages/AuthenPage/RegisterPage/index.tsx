@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actRegisterUser } from "../duck/actions";
 import { RootState } from "../../../store";
 import { useEffect } from "react";
+import React from "react";
 
 const initialValues = {
   taiKhoan: "",

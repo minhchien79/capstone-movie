@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { RootState } from "../../../../store";
 import { logout } from "../../../AuthenPage/duck/actions";
+import React from "react";
 
 
 export default function Header() {
