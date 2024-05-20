@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useEffect, useState } from "react";
 import { Rate, Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +27,7 @@ export default function DetailMovie() {
       if (id) {
         dispatch(actFetchMovieDetails(id));
       }
-    }, [id]);
+    }, [id,dispatch]);
 
     const handleToggleTrailer = () => {
       setShowTrailer(!showTrailer);
@@ -147,6 +148,7 @@ export default function DetailMovie() {
                               <img
                                 style={{ width: 60, height: 60 }}
                                 src={cumRap.hinhAnh}
+                                alt=""
                               />
                               <div className="ml-2">
                                 <p
