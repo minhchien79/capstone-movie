@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
@@ -14,8 +15,8 @@ const MultipleRows: React.FC = () => {
 
   useEffect(() => {
     dispatch(actFetchListMovie());
+    // eslint-disable-next-line
   }, []);
-
 
   const renderFilm = () => {
     if (loading)
@@ -25,6 +26,7 @@ const MultipleRows: React.FC = () => {
         </div>
       );
     if (data && data.length > 0) {
+      // eslint-disable-next-line
       return data.map((movie) => <Film_Flip key={movie.maPhim} item={movie} />);
     }
     return null;

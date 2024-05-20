@@ -39,7 +39,7 @@ export default function AuthenPage() {
     } else if (data1) {
       navigate("/");
     }
-  }, [data1]);
+  }, [data1, navigate]);
 
 
   const handleAlertClose = () => {

@@ -64,7 +64,7 @@ const Register = () => {
   });
 
   return (
-    <div className="react-responsive-modal-modal modal-sx m-0 px-6 py-10 m-0">
+    <div className="react-responsive-modal-modal modal-sx px-6 py-10 m-0">
       <div className="login__wrapper">
         <div className="login__icon text-center mb-3">
           <img
@@ -210,7 +210,7 @@ const Register = () => {
                   type="primary"
                   htmlType="submit"
                   loading={formikProps.isSubmitting}
-                  className="rounded-md hover:bg-[#e38601] transition-all duration-30 min-w-[135px] w-full focus:outline-none focus:ring-[#e38601] text-sm text-center inline-flex items-center dark:hover:bg-[#e38601] dark:focus:ring-[#e38601] justify-center text-white bg-[#f26b38] w-full h-full px-5 py-2.5 uppercase mt-5"
+                  className="rounded-md hover:bg-[#e38601] transition-all duration-30 min-w-[135px] focus:outline-none focus:ring-[#e38601] text-sm text-center inline-flex items-center dark:hover:bg-[#e38601] dark:focus:ring-[#e38601] justify-center text-white bg-[#f26b38] w-full h-full px-5 py-2.5 uppercase mt-5"
                 >
                   <span className="block">Hoàn thành</span>
                 </Button>
@@ -222,7 +222,7 @@ const Register = () => {
           <span>Bạn đã có tài khoản?</span>{" "}
           <NavLink
             to="/auth"
-            className="rounded-md hover:bg-[#e38601] transition-all duration-30 min-w-[135px] w-full focus:outline-none focus:ring-[#e38601] text-sm text-center inline-flex items-center dark:hover:bg-[#e38601] dark:focus:ring-[#e38601] justify-center border border-orange-20 text-primary hover:text-white w-auto px-6 py-[6px] font-light"
+            className="rounded-md hover:bg-[#e38601] transition-all duration-30 min-w-[135px] focus:outline-none focus:ring-[#e38601] text-sm text-center inline-flex items-center dark:hover:bg-[#e38601] dark:focus:ring-[#e38601] justify-center border border-orange-20 text-primary hover:text-white w-auto px-6 py-[6px] font-light"
           >
             <span className="block">Đăng nhập</span>{" "}
           </NavLink>
